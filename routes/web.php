@@ -39,7 +39,7 @@ Route::group([
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-    'namespace' => 'admin',
+    'namespace' => 'Admin',
     'middleware' => ['auth', 'admin']
 ], function () {
     Route::get('/home', 'HomeController@index')->name('home');
@@ -48,7 +48,7 @@ Route::group([
 Route::group([
     'prefix' => 'hr',
     'as' => 'hr.',
-    'namespace' => 'hr',
+    'namespace' => 'HR',
     'middleware' => ['auth', 'hr']
 ], function () {
     Route::get('/home', 'HomeController@index')->name('home');
@@ -57,7 +57,7 @@ Route::group([
 Route::group([
     'prefix' => 'staff',
     'as' => 'staff.',
-    'namespace' => 'staff',
+    'namespace' => 'Staff',
     'middleware' => ['auth', 'staff']
 ], function () {
     Route::get('/home', 'HomeController@index')->name('home');
