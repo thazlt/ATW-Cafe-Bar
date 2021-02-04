@@ -16,7 +16,7 @@ class RecipeSeeder extends Seeder
     {
         Recipe::create([
             'name' => 'Bloody Mary',
-            'ingridients' => '["Vodka"]',
+            'ingridients' => '["Vodka","Tomato"]',
             'guide' => 'drink vodka',
             'author' => 1,
             'validate' => true,
