@@ -13,14 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 //Auth
 Auth::routes();
 //Guest's pages
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/aboutus', function () {
+    return view('aboutus');
+});
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
 //Recipes page
 Route::get('/recipe', 'RecipeController@index')->name('recipe');
 Route::get('/recipe/{id}', 'RecipeController@show')->name('recipe.show');
