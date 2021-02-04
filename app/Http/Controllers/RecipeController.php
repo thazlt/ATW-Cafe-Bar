@@ -18,6 +18,7 @@ class RecipeController extends Controller
     public function show($id){
         $recipe = Recipe::findOrFail($id);
         $author = User::findOrFail($recipe->author);
+        $recipe->ingridients = json_decode($recipe->ingridients);
         var_dump($recipe->ingridients);
         return view('recipe.show', ['recipe'=>$recipe, 'author'=>$author->name]);
     }
