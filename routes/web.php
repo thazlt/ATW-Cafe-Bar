@@ -33,7 +33,7 @@ Route::group([
     'namespace' => 'user',
     'middleware' => ['auth']
 ], function () {
-    Route::get('/home', 'HomeController@index')->name('user.home');
+    Route::get('/home', 'HomeController@index')->name('home');
 });
 //Admin's Pages
 Route::group([
@@ -42,7 +42,7 @@ Route::group([
     'namespace' => 'admin',
     'middleware' => ['auth', 'admin']
 ], function () {
-    Route::get('/home', 'HomeController@index')->name('admin.home');
+    Route::get('/home', 'HomeController@index')->name('home');
 });
 //HR's Pages
 Route::group([
@@ -51,7 +51,7 @@ Route::group([
     'namespace' => 'hr',
     'middleware' => ['auth', 'hr']
 ], function () {
-    Route::get('/home', 'HomeController@index')->name('hr.home');
+    Route::get('/home', 'HomeController@index')->name('home');
 });
 //Staff's Pages
 Route::group([
@@ -60,5 +60,5 @@ Route::group([
     'namespace' => 'staff',
     'middleware' => ['auth', 'staff']
 ], function () {
-    Route::get('/home', 'HomeController@index')->name('staff.home');
+    Route::get('/home', 'HomeController@index')->name('home');
 });
