@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class IsStaffMiddleWare
+class IsStaffMiddleware
 {
     /**
      * Handle an incoming request.
