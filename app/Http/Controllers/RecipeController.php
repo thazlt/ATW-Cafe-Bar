@@ -20,6 +20,9 @@ class RecipeController extends Controller
         $author = User::findOrFail($recipe->author);
         $recipe->ingridients = json_decode($recipe->ingridients);
         var_dump($recipe->ingridients);
+        $array = ["thaz","thaz"];
+        $json = json_encode($array);
+        var_dump($array);
         return view('recipe.show', ['recipe'=>$recipe, 'author'=>$author->name]);
     }
 }
