@@ -22,7 +22,7 @@ class RecipeController extends Controller
         var_dump($recipe->ingridients);
         $array = ["thaz","thaz"];
         $json = json_encode($array);
-        var_dump($array);
+        var_dump($json);
         return view('recipe.show', ['recipe'=>$recipe, 'author'=>$author->name]);
     }
 }
