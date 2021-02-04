@@ -14,26 +14,14 @@ class RecipeSeeder extends Seeder
      */
     public function run()
     {
-        Recipe::create([
-            'name' => 'Bloody Mary',
-            'ingridients' => '["Vodka","Tomato", "Soju"]',
-            'guide' => 'drink vodka',
-            'author' => 1,
-            'validate' => true,
-        ]);
-        Recipe::create([
-            'name' => 'Pure Vodka',
-            'ingridients' => '["Vodka",]',
-            'guide' => 'drink vodka',
-            'author' => 1,
-            'validate' => true,
-        ]);
-        Recipe::create([
-            'name' => 'Pure Vodka 2',
-            'ingridients' => '["Vodka",""]',
-            'guide' => 'drink vodka',
-            'author' => 1,
-            'validate' => true,
-        ]);
+        $recipe = new Recipe();
+
+        $recipe->name = 'Bloody Mary';
+        $recipe->ingridients = ["Vodka","Tomato","Soju"];
+        $recipe->guide = 'drink vodka';
+        $recipe->author = 1;
+        $recipe->validate = true;
+
+        $recipe->save();
     }
 }
