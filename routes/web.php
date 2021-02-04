@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,48 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Auth
 Auth::routes();
+//Guest's pages
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
+//Recipes page
+Route::get('/recipe', 'RecipeController@index')->name('recipe');
+Route::get('/recipe/{id}', 'RecipeController@show')->name('recipe.show');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//User's pages
+Route::group([
+    'prefix' => 'user',
+    'as' => 'user.',
+    'namespace' => 'user',
+    'middleware' => ['auth']
+], function () {
+    Route::get('/home', 'HomeController@index')->name('user.home');
+});
+//Admin's Pages
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'namespace' => 'admin',
+    'middleware' => ['auth', 'admin']
+], function () {
+    Route::get('/home', 'HomeController@index')->name('admin.home');
+});
+//HR's Pages
+Route::group([
+    'prefix' => 'hr',
+    'as' => 'hr.',
+    'namespace' => 'hr',
+    'middleware' => ['auth', 'hr']
+], function () {
+    Route::get('/home', 'HomeController@index')->name('hr.home');
+});
+//Staff's Pages
+Route::group([
+    'prefix' => 'staff',
+    'as' => 'staff.',
+    'namespace' => 'staff',
+    'middleware' => ['auth', 'staff']
+], function () {
+    Route::get('/home', 'HomeController@index')->name('staff.home');
+});

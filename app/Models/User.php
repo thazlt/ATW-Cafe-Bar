@@ -10,6 +10,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    #User Types
+    public static $Admin = 1;
+    public static $HR = 2;
+    public static $Staff = 3;
 
     /**
      * The attributes that are mass assignable.
@@ -17,12 +21,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username',
+        'username', // 8 character minimum
         'name',
         'email',
-        'password',
-        'dob',
-        'userType',
+        'password', // 8 character minimum
+        'dob', //date
+        'userType', // 0: normal user, 1: admin, 2: HR, 3: employee
         'phone',
         'gender'
     ];
@@ -44,5 +48,10 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'dob' => 'date'
     ];
+
+    public function getUserType(){
+        return $this->roles()->where('userType', 1)->exists();
+    }
 }
