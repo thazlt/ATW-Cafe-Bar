@@ -31,7 +31,7 @@ Route::get('/recipe/{id}', 'RecipeController@show')->name('recipe.show');
 Route::group([
     'prefix' => 'user',
     'as' => 'user.',
-    'namespace' => 'user',
+    'namespace' => 'User',
     'middleware' => ['auth']
 ], function () {
     Route::get('/home', 'HomeController@index')->name('home');
