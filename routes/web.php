@@ -35,6 +35,8 @@ Route::group([
     'middleware' => ['auth']
 ], function () {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/recipe/create', 'RecipeController@create')->name('recipe.create');
+    Route::post('/recipe', 'RecipeController@store')->name('recipe.store');
 });
 //Admin's Pages
 Route::group([
